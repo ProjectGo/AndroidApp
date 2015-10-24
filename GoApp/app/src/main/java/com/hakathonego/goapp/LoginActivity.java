@@ -113,7 +113,8 @@ public class LoginActivity extends FragmentActivity {
         VKCallback<VKAccessToken> callback = new VKCallback<VKAccessToken>() {
             @Override
             public void onResult(VKAccessToken res) {
-                // User passed Authorization
+                CurrentUser.token = res;
+                //сюда написать отправку токена
                 startMainActivity();
             }
 
