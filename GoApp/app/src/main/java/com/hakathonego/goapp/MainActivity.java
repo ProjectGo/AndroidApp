@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     public void failure(RetrofitError error) {
                         //get the error, bitch!
                     }
-                });*/
+                });
                 //
                 /*client.sharedSendInstance().getEventList(new Callback<List<Event>>() {
                     @Override
