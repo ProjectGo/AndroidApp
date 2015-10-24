@@ -32,11 +32,7 @@ public class LoginActivity extends FragmentActivity {
      */
     private static final String[] sMyScope = new String[]{
             VKScope.FRIENDS,
-            VKScope.WALL,
-            VKScope.PHOTOS,
-            VKScope.NOHTTPS,
-            VKScope.MESSAGES,
-            VKScope.DOCS
+            VKScope.OFFLINE
     };
 
     @Override
