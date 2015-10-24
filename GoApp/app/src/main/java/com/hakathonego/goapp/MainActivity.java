@@ -21,7 +21,7 @@ import retrofit.client.Response;
 public class MainActivity extends AppCompatActivity {
 
     TextView text;
-
+    private MyClient client;
     String token;
 
 
@@ -40,7 +40,18 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //getFriends function!
+                client.sharedInstance().getFriends(new Callback<List<User>>() {
+                    @Override
+                    public void success(List<User> users, Response response) {
+                        //print all the users
+                    }
 
+                    @Override
+                    public void failure(RetrofitError error) {
+                        //get the error, bitch!
+                    }
+                });
                 //
                 /*client.sharedSendInstance().getEventList(new Callback<List<Event>>() {
                     @Override

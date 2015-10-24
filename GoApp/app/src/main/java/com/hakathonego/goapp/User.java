@@ -18,7 +18,7 @@ public class User {
      * @param name
      * @param sername
      */
-    public User(String id, String service, String name, String sername){
+    public User(String id, String name, String sername,String service){
         this.id = id;
         this.name = name;
         this.sername = sername;

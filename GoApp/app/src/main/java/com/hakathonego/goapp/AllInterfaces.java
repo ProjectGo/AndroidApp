@@ -22,6 +22,9 @@ public interface AllInterfaces {
     @GET("/event/{id}")
     void getEventId(Callback<List<Member>> callback);
 
+    @GET("/")
+    void getFriends(Callback<List<User>> callback);
+
     @GET("/my_api/shop_list")
     void getPostEvent(@Path("event") Event event, Callback<?> callback);
 
