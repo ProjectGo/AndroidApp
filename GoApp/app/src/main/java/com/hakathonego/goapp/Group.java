@@ -6,20 +6,29 @@ import java.util.ArrayList;
  * Created by Артём on 24.10.2015.
  */
 public class Group {
-    private String name = "";
-    private ArrayList<User> users = new ArrayList<>();
+    public String id = null;
+    public String name = null;
+    public ArrayList<User> users = null;
 
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
+    /**
+     * for getting list
+     * @param groupId
+     */
+    public Group(String groupId, String name){
+        this.id = groupId;
         this.name = name;
     }
 
-    public void addUser(User user){
-        users.add(user);
+    /**
+     * for posting
+     * @param name
+     * @param users
+     */
+    public Group(String name, ArrayList<User> users){
+        this.name = name;
+        this.users = users;
     }
-    public void deleteUser(int index){
-        users.remove(index);
-    }
+
+
+    public Group(){}
 }

@@ -1,36 +1,48 @@
 package com.hakathonego.goapp;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * Created by Артём on 24.10.2015.
  */
 public class Event {
-    private String id = "";
-    private String name = "";
-    private Group group = null;
-    private String dateTime = "";
+    public String id = null;
+    public String description = null;
+    public String place = null;
+    public ArrayList<Member> members = null;
+    public String groupid = null;
+    public String dateTime = null;
 
-    public void setId(String id) {
+    /**
+     * for getting list
+     * @param id
+     * @param description
+     * @param dateTime
+     */
+    public Event(String id,String description, String dateTime){
+        this.dateTime = dateTime;
+        this.description = description;
         this.id = id;
-    }
-    public String getId() {
-        return id;
+        this.dateTime = dateTime;
     }
 
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * for posting
+     * @param description
+     * @param place
+     * @param dateTime
+     * @param groupid
+     */
+    public Event(String description, String place, String dateTime, String groupid){
+        this.dateTime = dateTime;
+        this.description = description;
+        this.place = place;
+        this.groupid = groupid;
+
     }
 
-    public Group getGroup() {
-        return group;
-    }
-    public void setGroup(Group group) {
-        this.group = group;
-    }
+    public Event(){}
 }
 
 
