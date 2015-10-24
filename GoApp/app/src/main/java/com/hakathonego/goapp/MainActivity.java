@@ -1,14 +1,17 @@
 package com.hakathonego.goapp;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -36,7 +39,17 @@ public class MainActivity extends AppCompatActivity {
 
         lView = (ListView) findViewById(R.id.lview);
         adapter = new DataAdapter(this, getDataSet());
+        lView.setAdapter(adapter);
 
+        lView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Intent openEvent = new Intent(getBaseContext(), EventActivity.class);
+                openEvent.putExtra("EVENT_TO_SHOW", adapter.getItemId(position));
+                startActivity(openEvent);
+
+            }
+        });
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -45,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //getFriends function!
 
-                lView.setAdapter(adapter);
+
                 /*client.sharedInstance().getFriends(new Callback<List<User>>() {
                     @Override
                     public void success(List<User> users, Response response) {

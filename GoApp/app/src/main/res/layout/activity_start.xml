@@ -5,6 +5,7 @@
     android:weightSum="1"
     android:id="@+id/container">
 
+
     <ListView
         android:id="@+id/lview"
         android:layout_width="match_parent"
