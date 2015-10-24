@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        /*
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         text = (TextView) findViewById(R.id.text);
 
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //getFriends function!
-                client.sharedInstance().getFriends(new Callback<List<User>>() {
+                /*client.sharedInstance().getFriends(new Callback<List<User>>() {
                     @Override
                     public void success(List<User> users, Response response) {
                         //print all the users
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     public void failure(RetrofitError error) {
                         //get the error, bitch!
                     }
-                });
+                });*/
                 //
                 /*client.sharedSendInstance().getEventList(new Callback<List<Event>>() {
                     @Override
@@ -63,9 +63,10 @@ public class MainActivity extends AppCompatActivity {
                     public void failure(RetrofitError error) {
                         //show an error
                     }
-                });*/
+                });*
 
             }
         });
+        */
     }
 }

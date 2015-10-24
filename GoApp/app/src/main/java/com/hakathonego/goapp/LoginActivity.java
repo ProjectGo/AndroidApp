@@ -7,6 +7,7 @@ package com.hakathonego.goapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,12 @@ import com.vk.sdk.VKCallback;
 import com.vk.sdk.VKScope;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKError;
+
+import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  * Activity which displays a login screen to the user, offering registration as
@@ -116,7 +123,7 @@ public class LoginActivity extends FragmentActivity {
             public void onResult(VKAccessToken res) {
                 CurrentUser.token = res;
                 //сюда написать отправку токена
-                client.sharedInstance().postToken(CurrentUser.token.accessToken);
+                //client.sharedInstance().postToken(CurrentUser.token.accessToken);
                 startMainActivity();
             }
 
@@ -132,10 +139,23 @@ public class LoginActivity extends FragmentActivity {
     }
 
     private void startMainActivity() {
-        startActivity(new Intent(this, MainActivity.class));
-    }
+        client.sharedInstance().getFriends(CurrentUser.token.accessToken ,new Callback<List<User>>() {
+                                               @Override
+                                               public void success(List<User> users, Response response) {
+                                                   Log.d("Friends:", users.toString());
+                                               }
 
-    public static class LoginFragment extends android.support.v4.app.Fragment {
+                                               @Override
+                                               public void failure(RetrofitError error) {
+                                                   Log.d("Friends:", error.toString());
+                                               }
+                                           });
+            startActivity(new Intent(this, MainActivity.class)
+
+            );
+        }
+
+        public static class LoginFragment extends android.support.v4.app.Fragment {
         public LoginFragment() {
             super();
         }

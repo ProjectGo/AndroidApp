@@ -7,6 +7,7 @@ import com.vk.sdk.VKAccessToken;
  */
 public class CurrentUser {
     public static VKAccessToken token;
+    public static String Token;
     public static String name;
     public static String sername;
     public static String id;

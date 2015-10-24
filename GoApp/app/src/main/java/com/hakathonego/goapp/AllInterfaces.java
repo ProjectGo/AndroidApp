@@ -6,6 +6,7 @@ import retrofit.client.Response;
 
 import retrofit.http.Body;
 import retrofit.http.GET;
+import retrofit.http.Header;
 import retrofit.http.POST;
 import retrofit.http.Path;
 import retrofit.http.Query;
@@ -22,8 +23,8 @@ public interface AllInterfaces {
     @GET("/event/{id}")
     void getEventId(Callback<List<Member>> callback);
 
-    @GET("/")
-    void getFriends(Callback<List<User>> callback);
+    @GET("/friends")
+    void getFriends(@Header("token")String token,Callback<List<User>> callback);
 
     @GET("/my_api/shop_list")
     void getPostEvent(@Path("event") Event event, Callback<?> callback);
