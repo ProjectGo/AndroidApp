@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     TextView text;
     private MyClient client;
     String token;
+    DataAdapter adapter;
+    ListView lView;
 
 
     @Override
@@ -30,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        text = (TextView) findViewById(R.id.text);
+        lView = (ListView) findViewById(R.id.lview);
+        adapter = new DataAdapter(this, getDataSet());
+
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -41,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //getFriends function!
-                client.sharedInstance().getFriends(new Callback<List<User>>() {
+
+                lView.setAdapter(adapter);
+                /*client.sharedInstance().getFriends(new Callback<List<User>>() {
                     @Override
                     public void success(List<User> users, Response response) {
                         //print all the users
@@ -51,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     public void failure(RetrofitError error) {
                         //get the error, bitch!
                     }
-                });
+                });*/
                 //
                 /*client.sharedSendInstance().getEventList(new Callback<List<Event>>() {
                     @Override
@@ -67,5 +72,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+    private Event[] getDataSet(){
+        Event[] arr = new Event[5];
+        for (int i = 0; i < 5; i++) {
+            arr[i] = new Event();
+            arr[i].description = "item" + i;
+            arr[i].place = "garage";
+            arr[i].dateTime = "22.08.199"+ i;
+        }
+        return arr;
     }
 }
