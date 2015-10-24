@@ -6,20 +6,23 @@ import java.util.ArrayList;
  * Created by Артём on 24.10.2015.
  */
 public class User {
-    public String vkid = null;
+    public String id = null;
+    public String service = null;
     public String name = null;
     public String sername = null;
 
     /**
      * for getting users list
-     * @param vkid
+     * @param id
+     * @param service
      * @param name
      * @param sername
      */
-    public User(String vkid, String name, String sername){
-        this.vkid = vkid;
+    public User(String id, String service, String name, String sername){
+        this.id = id;
         this.name = name;
         this.sername = sername;
+        this.service = service;
     }
 
     public User(){}

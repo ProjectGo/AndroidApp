@@ -8,13 +8,15 @@ public class Member extends User{
 
     /**
      * for getting event
-     * @param vkid
+     * @param id
+     * @param service
      * @param name
      * @param sername
      * @param desision
      */
-    public Member(String vkid, String name, String sername, Desision desision){
-        this.vkid = vkid;
+    public Member(String id, String service, String name, String sername, Desision desision){
+        this.id = id;
+        this.service = service;
         this.name = name;
         this.sername = sername;
         this.desision = desision;
