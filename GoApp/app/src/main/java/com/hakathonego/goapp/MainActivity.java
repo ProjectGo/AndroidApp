@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-
 public class MainActivity extends AppCompatActivity {
 
     Test test;
@@ -38,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private  class Test extends AsyncTask<Void, Void, Void> {
+
+    private class Test extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -53,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
                         "services/search/web?v=1.0&q={query}";
 
                 // Create a new RestTemplate instance
-                    //RestTemplate restTemplate = new RestTemplate();
+                //RestTemplate restTemplate = new RestTemplate();
 
                 // Add the String message converter
-                    //restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
+                //restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
 
                 // Make the HTTP GET request, marshaling the response to a String
-                    //res = restTemplate.getForObject(url, String.class, "Android");
+                //res = restTemplate.getForObject(url, String.class, "Android");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -72,7 +72,4 @@ public class MainActivity extends AppCompatActivity {
             text.setText(res);
         }
     }
-
-
-
 }
