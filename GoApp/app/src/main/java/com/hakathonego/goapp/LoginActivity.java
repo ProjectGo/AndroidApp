@@ -24,6 +24,7 @@ import com.vk.sdk.api.VKError;
 public class LoginActivity extends FragmentActivity {
 
     private boolean isResumed = false;
+    private MyClient client;
 
     /**
      * Scope is set of required permissions for your application
@@ -115,6 +116,7 @@ public class LoginActivity extends FragmentActivity {
             public void onResult(VKAccessToken res) {
                 CurrentUser.token = res;
                 //сюда написать отправку токена
+                client.sharedInstance().postToken(CurrentUser.token.accessToken);
                 startMainActivity();
             }
 
