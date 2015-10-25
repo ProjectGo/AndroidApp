@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
+        android:theme="@style/AppTheme"
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -11,20 +12,23 @@
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:text="Description"
                 android:layout_weight = "1"
                 android:textSize="20dp"
-                android:id="@+id/description"/>
+                android:id="@+id/description"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:text="Time"
                 android:textSize="20dp"
-                android:id="@+id/time"/>
+                android:id="@+id/time"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -36,13 +40,15 @@
                 android:text="Place"
                 android:layout_weight = "1"
                 android:textSize="20dp"
-                android:id="@+id/place"/>
+                android:id="@+id/place"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:text="Date"
                 android:textSize="20dp"
-                android:id="@+id/date"/>
+                android:id="@+id/date"
+                />
 
         </LinearLayout>
     </LinearLayout>
