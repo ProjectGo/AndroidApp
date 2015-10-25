@@ -1,5 +1,7 @@
 package com.hakathonego.goapp;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 
 /**

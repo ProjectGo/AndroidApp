@@ -151,9 +151,9 @@ public class LoginActivity extends FragmentActivity {
                                                }
                                            });
             */
-            startActivity(new Intent(this, MainActivity.class)
-
-            );
+        Intent main = new Intent(this, MainActivity.class);
+        main.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(main);
 
         }
         public static class LoginFragment extends android.support.v4.app.Fragment {

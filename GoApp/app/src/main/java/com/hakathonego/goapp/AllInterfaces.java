@@ -20,25 +20,26 @@ public interface AllInterfaces {
     @GET("/")
     void getEventList(Callback<List<Event> > callback);
 
-    @GET("/event/{id}")
-    void getEventId(Callback<List<Member>> callback);
-
     @GET("/friends")
     void getFriends(@Header("token")String token,Callback<List<User>> callback);
 
-    @GET("/my_api/shop_list")
-    void getPostEvent(@Path("event") Event event, Callback<?> callback);
+    @GET("/event/{id}")
+    void getEventId(Callback<List<Member>> callback);
 
     @GET("/")
     void getGroupList(Callback<List<Group>> callback);
 
+    @GET("/my_api/shop_list")
+    void getPostEvent(@Path("event") Event event, Callback<?> callback);
+
+
     @GET("/")
     void getGroup(Callback<Group> callback);
 
-    @POST("")
+    @POST("/")
     void postEvent(@Body Event event);
 
-    @POST("")
+    @POST("/")
     void postDecision(@Body Event event);
 
     @POST("/url")

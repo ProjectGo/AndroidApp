@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private Event[] getDataSet(){
         Event[] arr = new Event[5];
+
         for (int i = 0; i < 5; i++) {
             arr[i] = new Event();
             arr[i].description = "item" + i;
