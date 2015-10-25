@@ -139,7 +139,7 @@ public class LoginActivity extends FragmentActivity {
     }
 
     private void startMainActivity() {
-        client.sharedInstance().getFriends(CurrentUser.token.accessToken ,new Callback<List<User>>() {
+        /*client.sharedInstance().getFriends(CurrentUser.token.accessToken ,new Callback<List<User>>() {
                                                @Override
                                                public void success(List<User> users, Response response) {
                                                    Log.d("Friends:", users.toString());
@@ -150,9 +150,12 @@ public class LoginActivity extends FragmentActivity {
                                                    Log.d("Friends:", error.toString());
                                                }
                                            });
-            startActivity(new Intent(this, MainActivity.class));
-        }
+            */
+            startActivity(new Intent(this, MainActivity.class)
 
+            );
+
+        }
         public static class LoginFragment extends android.support.v4.app.Fragment {
         public LoginFragment() {
             super();
