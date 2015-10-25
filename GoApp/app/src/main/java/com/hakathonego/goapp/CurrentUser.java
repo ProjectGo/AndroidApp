@@ -6,7 +6,7 @@ import com.vk.sdk.VKAccessToken;
  * Created by Артём on 24.10.2015.
  */
 public class CurrentUser {
-    public static VKAccessToken token;
+    public static String token;
     public static String Token;
     public static String name;
     public static String sername;

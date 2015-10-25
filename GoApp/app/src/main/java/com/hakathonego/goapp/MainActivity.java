@@ -1,5 +1,6 @@
 package com.hakathonego.goapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -9,10 +10,14 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
     ListView lView;
     Intent openEvent;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,13 +53,11 @@ public class MainActivity extends AppCompatActivity {
                                     int position, long id) {
                 openEvent = new Intent(getBaseContext(), EventActivity.class);
                 Bundle bundle = new Bundle();
-                bundle. putParcelable("whatToShow", Parcels.wrap(adapter.getItem(position)));
+                bundle.putParcelable("whatToShow", Parcels.wrap(adapter.getItem(position)));
                 openEvent.putExtras(bundle);
                 startActivity(openEvent);
             }
         });
-
-
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -104,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 40; i++) {
             arr[i] = new Event();
             arr[i].description = "item" + i;
-
             arr[i].place = "garage";
 
             arr[i].dateTime = i% 32 + "." + i%13 + ".199"+ i%10;

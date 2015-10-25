@@ -56,7 +56,7 @@ public class LoginActivity extends FragmentActivity {
                             showLogin();
                             break;
                         case LoggedIn:
-                            showLogout();
+                            showLogin();
                             break;
                         case Pending:
                             break;
@@ -98,11 +98,7 @@ public class LoginActivity extends FragmentActivity {
     protected void onResume() {
         super.onResume();
         isResumed = true;
-        if (VKSdk.isLoggedIn()) {
-            showLogout();
-        } else {
-            showLogin();
-        }
+        showLogin();
     }
 
     @Override
@@ -121,7 +117,7 @@ public class LoginActivity extends FragmentActivity {
         VKCallback<VKAccessToken> callback = new VKCallback<VKAccessToken>() {
             @Override
             public void onResult(VKAccessToken res) {
-                CurrentUser.token = res;
+                CurrentUser.token = res.accessToken;
                 //сюда написать отправку токена
                 //client.sharedInstance().postToken(CurrentUser.token.accessToken);
                 startMainActivity();

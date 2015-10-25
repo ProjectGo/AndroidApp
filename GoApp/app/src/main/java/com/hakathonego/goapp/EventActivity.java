@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -38,8 +39,6 @@ public class EventActivity extends AppCompatActivity {
         colors[0] = Color.parseColor("#B2EBF2");
         colors[1] = Color.parseColor("#00BCD4");
 
-        //Log.d("Token:", CurrentUser.token.accessToken);
-
         LinearLayout linLayout = (LinearLayout) findViewById(R.id.scroll_linLayout);
 
         LayoutInflater ltInflater = getLayoutInflater();
@@ -54,6 +53,7 @@ public class EventActivity extends AppCompatActivity {
             if(j % 3 == 2)
                 event.members.add(new Member(Integer.toString(j-1), "vk", names[j%10][0],names[j%10][1], Desision.Thinking));
         }
+
         for (int i = 0; i < event.members.size(); i++) {
             //Log.d("myLogs", "i = " + i);
             View item = ltInflater.inflate(R.layout.member, linLayout, false);
