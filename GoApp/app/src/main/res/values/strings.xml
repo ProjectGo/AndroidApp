@@ -2,4 +2,5 @@
     <string name="app_name">GoApp</string>
     <string name="action_settings">Settings</string>
     <integer name="com_vk_sdk_AppId">5118943</integer>
+    <string name="title_activity_all_group">allGroupActivity</string>
 </resources>
