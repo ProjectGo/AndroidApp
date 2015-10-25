@@ -1,11 +1,14 @@
 package com.hakathonego.goapp;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * Created by Артём on 24.10.2015.
  */
+@Parcel(Parcel.Serialization.BEAN)
 public class Event {
     public String id = null;
     public String description = null;
@@ -13,6 +16,8 @@ public class Event {
     public ArrayList<Member> members = null;
     public String groupid = null;
     public String dateTime = null;
+
+    public Event(){}
 
     /**
      * for getting list
@@ -41,8 +46,6 @@ public class Event {
         this.groupid = groupid;
 
     }
-
-    public Event(){}
 }
 
 

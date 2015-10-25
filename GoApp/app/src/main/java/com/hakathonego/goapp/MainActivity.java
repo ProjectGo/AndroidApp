@@ -3,6 +3,7 @@ package com.hakathonego.goapp;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 import retrofit.Callback;
@@ -24,9 +27,7 @@ import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView text;
     private MyClient client;
-    String token;
     DataAdapter adapter;
     ListView lView;
 
@@ -45,9 +46,10 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Intent openEvent = new Intent(getBaseContext(), EventActivity.class);
-                openEvent.putExtra("EVENT_TO_SHOW", adapter.getItemId(position));
+                Bundle bundle = new Bundle();
+                bundle. putParcelable("whatToShow", Parcels.wrap(adapter.getItem(position-1)));
+                openEvent.putExtras(bundle);
                 startActivity(openEvent);
-
             }
         });
 

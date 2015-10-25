@@ -28,6 +28,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity
+            android:name=".EventActivity"
+            android:label="ServiceActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

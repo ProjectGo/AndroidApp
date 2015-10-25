@@ -150,9 +150,7 @@ public class LoginActivity extends FragmentActivity {
                                                    Log.d("Friends:", error.toString());
                                                }
                                            });
-            startActivity(new Intent(this, MainActivity.class)
-
-            );
+            startActivity(new Intent(this, MainActivity.class));
         }
 
         public static class LoginFragment extends android.support.v4.app.Fragment {

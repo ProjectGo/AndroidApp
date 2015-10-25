@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import org.parceler.Parcel;
+
 public class DataAdapter extends BaseAdapter {
 
     private Context mContext;
