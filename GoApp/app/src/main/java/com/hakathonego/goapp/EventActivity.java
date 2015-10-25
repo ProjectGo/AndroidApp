@@ -27,9 +27,9 @@ public class EventActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
-        Event loaded = Parcels.unwrap(this.getIntent().getParcelableExtra("whatToShow"));
-        TextView what = (TextView)findViewById(R.id.what);
-        what.setText(loaded.description);
+        Event event = Parcels.unwrap(this.getIntent().getParcelableExtra("whatToShow"));
+        //TextView what = (TextView)findViewById(R.id.what);
+        //.setText(loaded.description);
 
 
         colors[0] = Color.parseColor("#559966CC");
