@@ -52,10 +52,18 @@ public class AllGroupActivity extends AppCompatActivity {
     }
 
     private Group[] getDataSet(){
-        Group[] arr = new Group[10];
-        for (int i = 0; i < 10; i++) {
+        Group[] arr = new Group[50];
+        for (int i = 0; i < 50; i++) {
             arr[i] = new Group();
-            arr[i].name= "Group " + i;
+            if(i % 4 == 0)
+                arr[i].name= "Family " + "Group " + i;
+            if(i % 4 == 1)
+                arr[i].name= "Teammates " + "Group " + i;
+            if(i % 4 == 2)
+                arr[i].name= "Friends " + "Group " + i;
+            if(i % 4 == 3)
+                arr[i].name= "Cookies " + "Group " + i;
+
         }
         return arr;
     }

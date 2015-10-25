@@ -25,6 +25,7 @@ public class EventActivity extends AppCompatActivity {
     EventsAdapter adapter;
     ListView listViewOfMembers;
     int[] colors = new int[2];
+    String[][] names;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +44,15 @@ public class EventActivity extends AppCompatActivity {
 
         LayoutInflater ltInflater = getLayoutInflater();
         //заглушка
+        genArray();
         event.members = new ArrayList<Member>();
-        for (int i = 0; i < 5; i++) {
-            event.members.add(new Member("123", "vk", "vasya", "pupkin", Desision.Yes));
+        for (int j = 0; j < 10; j++) {
+            if(j % 3 == 0)
+                event.members.add(new Member(Integer.toString(j-1), "vk", names[j%10][0],names[j%10][1], Desision.Yes));
+            if(j % 3 == 1)
+                event.members.add(new Member(Integer.toString(j-1), "vk", names[j%10][0],names[j%10][1], Desision.No));
+            if(j % 3 == 2)
+                event.members.add(new Member(Integer.toString(j-1), "vk", names[j%10][0],names[j%10][1], Desision.Thinking));
         }
         for (int i = 0; i < event.members.size(); i++) {
             //Log.d("myLogs", "i = " + i);
@@ -73,5 +80,19 @@ public class EventActivity extends AppCompatActivity {
             linLayout.addView(item);
         }
 
+    }
+
+    void genArray(){
+        names = new String[10][2];
+        names[0][0] = "Igor"; names[0][1] = "Tochniy";
+        names[1][0] = "Vasya"; names[1][1] = "Svoyvdosku";
+        names[2][0] = "Petya"; names[2][1] = "Alkash";
+        names[3][0] = "Marina"; names[3][1] = "Veselaya";
+        names[4][0] = "Sokol"; names[4][1] = "Viktorov";
+        names[5][0] = "Leo"; names[5][1] = "Tolstoy";
+        names[6][0] = "Chip"; names[6][1] = "Green";
+        names[7][0] = "Daile"; names[7][1] = "Fat";
+        names[8][0] = "Mitya"; names[8][1] = "Rovniy";
+        names[9][0] = "Sasha"; names[9][1] = "Kusnezov";
     }
 }

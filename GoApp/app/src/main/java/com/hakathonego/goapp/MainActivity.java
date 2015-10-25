@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit.Callback;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     EventsAdapter adapter;
     ListView lView;
     Intent openEvent;
+
 
 
     @Override
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(openEvent);
             }
         });
+
+
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -91,14 +95,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private Event[] getDataSet(){
-        Event[] arr = new Event[5];
 
-        for (int i = 0; i < 5; i++) {
+
+    private Event[] getDataSet(){
+        Event[] arr = new Event[40];
+        //genArray();
+
+        for (int i = 0; i < 40; i++) {
             arr[i] = new Event();
             arr[i].description = "item" + i;
+
             arr[i].place = "garage";
-            arr[i].dateTime = "22.08.199"+ i;
+
+            arr[i].dateTime = i% 32 + "." + i%13 + ".199"+ i%10;
+
         }
         return arr;
     }
