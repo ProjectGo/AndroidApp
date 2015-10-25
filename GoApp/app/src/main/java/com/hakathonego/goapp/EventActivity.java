@@ -15,12 +15,14 @@ import android.widget.TextView;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
+
 /**
  * Created by Артём on 24.10.2015.
  */
 public class EventActivity extends AppCompatActivity {
 
-    DataAdapter adapter;
+    EventsAdapter adapter;
     ListView listViewOfMembers;
     int[] colors = new int[2];
 
@@ -32,21 +34,25 @@ public class EventActivity extends AppCompatActivity {
         //.setText(loaded.description);
 
 
-        colors[0] = Color.parseColor("#559966CC");
-        colors[1] = Color.parseColor("#55336699");
-        
+        colors[0] = Color.parseColor("#B2EBF2");
+        colors[1] = Color.parseColor("#00BCD4");
+
+        //Log.d("Token:", CurrentUser.token.accessToken);
 
         LinearLayout linLayout = (LinearLayout) findViewById(R.id.scroll_linLayout);
 
         LayoutInflater ltInflater = getLayoutInflater();
-
-
+        //заглушка
+        event.members = new ArrayList<Member>();
+        for (int i = 0; i < 5; i++) {
+            event.members.add(new Member("123", "vk", "vasya", "pupkin", Desision.Yes));
+        }
         for (int i = 0; i < event.members.size(); i++) {
             //Log.d("myLogs", "i = " + i);
             View item = ltInflater.inflate(R.layout.member, linLayout, false);
             TextView memberName = (TextView) item.findViewById(R.id.member_name);
             memberName.setText(event.members.get(i).name + " " + event.members.get(i).sername);
-            ImageView desicionImage = (ImageView) findViewById(R.id.decision_image);
+            ImageView desicionImage = (ImageView) item.findViewById(R.id.decision_image);
 
             switch (event.members.get(i).desision){
                 case Yes:

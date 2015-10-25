@@ -1,14 +1,28 @@
 package com.hakathonego.goapp;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.parceler.Parcels;
+
+import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -34,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                                     int position, long id) {
                 openEvent = new Intent(getBaseContext(), EventActivity.class);
                 Bundle bundle = new Bundle();
-                bundle. putParcelable("whatToShow", Parcels.wrap(adapter.getItem(position - 1)));
+                bundle. putParcelable("whatToShow", Parcels.wrap(adapter.getItem(position)));
                 openEvent.putExtras(bundle);
                 startActivity(openEvent);
             }
@@ -45,12 +59,11 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //get all available groups
+                //getFriends function!
 
                 openEvent = new Intent(getBaseContext(),AllGroupActivity.class);
                 startActivity(openEvent);
 
-                //getFriends function!
                 /*client.sharedInstance().getFriends(new Callback<List<User>>() {
                     @Override
                     public void success(List<User> users, Response response) {
